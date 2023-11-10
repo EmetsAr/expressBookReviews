@@ -96,4 +96,21 @@ function getBookByAuthor(author) {
     }, 500);
   });
 }
+
+function getBookByTitle(title) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const targetBook = [];
+      for (const key in books) {
+        if (books[key].title === title) {
+          targetBook.push(books[key]);
+        }
+      }
+      if (targetBook.length === 0) {
+        reject("Book with such title is not found");
+      }
+      resolve(targetBook);
+    }, 500);
+  });
+}
 module.exports.general = public_users;
